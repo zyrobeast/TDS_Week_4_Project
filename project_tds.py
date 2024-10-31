@@ -46,7 +46,7 @@ df = pd.DataFrame(user_data)
 df.to_csv("user_data.csv")
 
 
-# Creating user_data
+# Creating users csv
 df = pd.read_csv('user_data.csv')
 df = df.loc[:, ['login', 'name', 'company', 'location', 'email', 'hireable', 'bio',
                 'public_repos', 'followers', 'following', 'created_at']]
@@ -54,10 +54,10 @@ df['company'] = df['company'].fillna('').astype(str)
 df['company'] = df['company'].apply(lambda x: x.strip())
 df['company'] = df['company'].apply(lambda x: (x[1:] if x and x[0] == '@' else x).upper())
 
-df.to_csv('user_data_.csv', index=False)
+df.to_csv('users.csv', index=False)
 
 
-# Creating repo_data
+# Creating repositories csv
 df = pd.read_csv('repo_data.csv')
 df['login'] = df['full_name'].apply(lambda x: x[:x.index('/')])
 df['license'] = df['license'].fillna('').apply(lambda x: x.strip()).astype(str)
@@ -66,5 +66,5 @@ df = df.loc[:, ['login', 'full_name', 'created_at', 'stargazers_count', 'watcher
                  'has_projects', 'has_wiki', 'license']]
 df.rename(columns={'license': 'license_name'})
 
-df.to_csv('repo_data_.csv', index=False)
+df.to_csv('repositories.csv', index=False)
 
