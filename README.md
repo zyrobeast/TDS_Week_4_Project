@@ -1,1 +1,3 @@
-# TDS_Week_4_Project
+- Made calls to Github Search API using python requests module
+- Javascript and Python are the most used languages
+- Learn how to make useful and informative commits
